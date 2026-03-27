@@ -1,216 +1,93 @@
-export default function MatsiukConsultingSite() {
-  const services = [
-    {
-      title: "Інформаційно-консультаційні послуги",
-      text: "Надання індивідуальних консультацій щодо технічних, цифрових та організаційних рішень для бізнесу і приватних клієнтів.",
-    },
-    {
-      title: "Аналіз та систематизація інформації",
-      text: "Обробка, структурування та підготовка інформаційних матеріалів, інструкцій, описів процесів і практичних рекомендацій.",
-    },
-    {
-      title: "Оптимізація процесів",
-      text: "Консультації з покращення внутрішніх процесів, впорядкування робочих задач та впровадження цифрових інструментів.",
-    },
-    {
-      title: "Підготовка матеріалів і гайдів",
-      text: "Створення зрозумілих інформаційних документів, пам’яток, покрокових інструкцій та супровідних матеріалів.",
-    },
-    {
-      title: "Інформаційна підтримка клієнтів",
-      text: "Допомога у пошуку, узагальненні та поясненні інформації для прийняття практичних рішень у різних сферах діяльності.",
-    },
-    {
-      title: "Консультації щодо цифрових рішень",
-      text: "Рекомендації щодо підбору інструментів, сервісів і підходів для більш зручної та ефективної роботи.",
-    },
-  ];
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Мацюк — консультаційні послуги</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0b0b0b;
+      color: #ffffff;
+    }
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+    h1 {
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
+    h2 {
+      margin-top: 40px;
+    }
+    .card {
+      background: #1a1a1a;
+      padding: 20px;
+      border-radius: 12px;
+      margin-top: 20px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 20px;
+      background: #00e5ff;
+      color: #000;
+      border-radius: 8px;
+      text-decoration: none;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      border-radius: 8px;
+      border: none;
+      background: #222;
+      color: #fff;
+      box-sizing: border-box;
+    }
+    textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Мацюк</h1>
+    <p>Інформаційно-консультаційні послуги</p>
 
-  const steps = [
-    "Залишаєте запит через форму зворотного зв’язку",
-    "Уточнюємо задачу та формат консультації",
-    "Погоджуємо обсяг робіт і вартість",
-    "Виконую послугу та надаю результат у погоджений строк",
-  ];
+    <a class="btn" href="#contact">Залишити заявку</a>
 
-  return (
-    <div className="min-h-screen bg-neutral-950 text-white">
-      <section className="relative overflow-hidden border-b border-white/10">
-        <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-transparent to-emerald-500/10" />
-        <div className="mx-auto max-w-7xl px-6 py-20 md:py-28 relative">
-          <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
-            <div>
-              <div className="inline-flex items-center rounded-full border border-cyan-400/30 bg-cyan-400/10 px-4 py-1.5 text-sm text-cyan-200">
-                Сайт-візитка • консультаційні послуги
-              </div>
-              <h1 className="mt-6 text-4xl font-semibold leading-tight md:text-6xl">
-                Мацюк
-                <span className="block text-cyan-300">інформаційно-консультаційні послуги</span>
-              </h1>
-              <p className="mt-6 max-w-xl text-base leading-7 text-white/70 md:text-lg">
-                Допомога з аналізом інформації, систематизацією матеріалів, підготовкою інструкцій,
-                консультаціями щодо цифрових рішень та оптимізації робочих процесів.
-              </p>
-              <div className="mt-8 flex flex-wrap gap-4">
-                <a
-                  href="#services"
-                  className="rounded-2xl bg-cyan-400 px-6 py-3 font-medium text-neutral-950 shadow-lg shadow-cyan-500/20 transition hover:scale-[1.02]"
-                >
-                  Переглянути послуги
-                </a>
-                <a
-                  href="#contact"
-                  className="rounded-2xl border border-white/15 px-6 py-3 font-medium text-white/90 transition hover:bg-white/5"
-                >
-                  Зв’язатися
-                </a>
-              </div>
-            </div>
+    <h2>Про діяльність</h2>
+    <p>
+      Надання інформаційно-консультаційних послуг: аналіз інформації,
+      підготовка матеріалів, оптимізація процесів та консультації щодо цифрових рішень.
+    </p>
 
-            <div className="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-2xl backdrop-blur">
-              <div className="grid gap-4 sm:grid-cols-2">
-                <div className="rounded-2xl border border-white/10 bg-black/20 p-5">
-                  <p className="text-sm text-white/50">Формат роботи</p>
-                  <p className="mt-2 text-lg font-medium">Онлайн-консультації</p>
-                </div>
-                <div className="rounded-2xl border border-white/10 bg-black/20 p-5">
-                  <p className="text-sm text-white/50">Основний напрям</p>
-                  <p className="mt-2 text-lg font-medium">Інформаційні та цифрові рішення</p>
-                </div>
-                <div className="rounded-2xl border border-white/10 bg-black/20 p-5 sm:col-span-2">
-                  <p className="text-sm text-white/50">Для кого</p>
-                  <p className="mt-2 text-lg font-medium">
-                    Для клієнтів, яким потрібне зрозуміле структурування інформації, практичні рекомендації та супровід у робочих питаннях.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+    <h2>Послуги</h2>
+    <div class="card">Консультації щодо цифрових рішень</div>
+    <div class="card">Аналіз та систематизація інформації</div>
+    <div class="card">Оптимізація процесів</div>
+    <div class="card">Підготовка інструкцій і гайдів</div>
 
-      <section id="about" className="mx-auto max-w-7xl px-6 py-20">
-        <div className="grid gap-10 lg:grid-cols-[1.1fr,0.9fr]">
-          <div>
-            <p className="text-sm uppercase tracking-[0.25em] text-cyan-300/80">Про діяльність</p>
-            <h2 className="mt-4 text-3xl font-semibold md:text-4xl">Професійний підхід до інформації та консультацій</h2>
-            <p className="mt-6 max-w-3xl text-white/70 leading-7">
-              Діяльність спрямована на надання інформаційно-консультаційних послуг, пов’язаних з обробкою,
-              узагальненням та підготовкою матеріалів для клієнтів. Послуги мають консультаційний та
-              інформаційний характер і надаються відповідно до індивідуального запиту клієнта.
-            </p>
-          </div>
-          <div className="rounded-3xl border border-white/10 bg-white/5 p-6">
-            <h3 className="text-xl font-medium">Що входить у роботу</h3>
-            <ul className="mt-5 space-y-3 text-white/75">
-              <li>• аналіз запиту клієнта</li>
-              <li>• збір та систематизація інформації</li>
-              <li>• підготовка зрозумілих рекомендацій</li>
-              <li>• оформлення матеріалів у зручному форматі</li>
-              <li>• подальша консультаційна підтримка</li>
-            </ul>
-          </div>
-        </div>
-      </section>
+    <h2>Як проходить робота</h2>
+    <p>
+      1. Ви залишаєте заявку<br>
+      2. Обговорюємо задачу<br>
+      3. Узгоджуємо ціну<br>
+      4. Виконання
+    </p>
 
-      <section id="services" className="mx-auto max-w-7xl px-6 pb-20">
-        <div className="flex items-end justify-between gap-6">
-          <div>
-            <p className="text-sm uppercase tracking-[0.25em] text-cyan-300/80">Послуги</p>
-            <h2 className="mt-4 text-3xl font-semibold md:text-4xl">Основні напрями роботи</h2>
-          </div>
-        </div>
+    <h2 id="contact">Контакти</h2>
+    <input placeholder="Ваше ім’я">
+    <input placeholder="Email">
+    <textarea placeholder="Ваш запит"></textarea>
 
-        <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {services.map((service) => (
-            <div key={service.title} className="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-lg">
-              <h3 className="text-xl font-medium">{service.title}</h3>
-              <p className="mt-3 text-sm leading-7 text-white/70">{service.text}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-7xl px-6 pb-20">
-        <div className="grid gap-6 lg:grid-cols-2">
-          <div className="rounded-3xl border border-white/10 bg-white/5 p-6">
-            <p className="text-sm uppercase tracking-[0.25em] text-cyan-300/80">Як відбувається співпраця</p>
-            <h2 className="mt-4 text-3xl font-semibold">Простий та зрозумілий процес</h2>
-            <div className="mt-8 space-y-4">
-              {steps.map((step, index) => (
-                <div key={step} className="flex gap-4 rounded-2xl border border-white/10 bg-black/20 p-4">
-                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-cyan-400 font-semibold text-neutral-950">
-                    {index + 1}
-                  </div>
-                  <p className="pt-1 text-white/80">{step}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="rounded-3xl border border-white/10 bg-gradient-to-br from-cyan-400/10 to-emerald-400/10 p-6">
-            <p className="text-sm uppercase tracking-[0.25em] text-cyan-300/80">Вартість</p>
-            <h2 className="mt-4 text-3xl font-semibold">Оплата формується індивідуально</h2>
-            <p className="mt-6 text-white/75 leading-7">
-              Вартість залежить від складності запиту, обсягу роботи, терміновості, кількості матеріалів
-              та формату кінцевого результату. Остаточна сума узгоджується з клієнтом до початку виконання робіт.
-            </p>
-            <div className="mt-8 rounded-2xl border border-white/10 bg-black/20 p-5 text-white/70">
-              Це дозволяє врахувати індивідуальні потреби клієнта та надати прозорий і обґрунтований підхід до ціноутворення.
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-7xl px-6 pb-20">
-        <div className="rounded-3xl border border-white/10 bg-white/5 p-8 md:p-10">
-          <p className="text-sm uppercase tracking-[0.25em] text-cyan-300/80">Конфіденційність</p>
-          <h2 className="mt-4 text-3xl font-semibold">Ваші дані та запити обробляються конфіденційно</h2>
-          <p className="mt-6 max-w-4xl text-white/70 leading-7">
-            Інформація, отримана від клієнтів у межах консультаційної діяльності, використовується виключно для
-            виконання запиту, надання послуг та комунікації з клієнтом. Особисті дані не передаються третім особам,
-            окрім випадків, передбачених законодавством.
-          </p>
-        </div>
-      </section>
-
-      <section id="contact" className="mx-auto max-w-7xl px-6 pb-24">
-        <div className="grid gap-8 lg:grid-cols-2">
-          <div>
-            <p className="text-sm uppercase tracking-[0.25em] text-cyan-300/80">Контакти</p>
-            <h2 className="mt-4 text-3xl font-semibold md:text-4xl">Залишити запит</h2>
-            <p className="mt-6 max-w-xl text-white/70 leading-7">
-              Опишіть коротко вашу задачу, і я зв’яжуся з вами для уточнення деталей, формату роботи та вартості послуг.
-            </p>
-          </div>
-
-          <form className="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-xl">
-            <div className="grid gap-4">
-              <input
-                type="text"
-                placeholder="Ваше ім’я"
-                className="rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-white outline-none placeholder:text-white/35"
-              />
-              <input
-                type="email"
-                placeholder="Email"
-                className="rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-white outline-none placeholder:text-white/35"
-              />
-              <textarea
-                rows={6}
-                placeholder="Опишіть ваш запит"
-                className="rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-white outline-none placeholder:text-white/35"
-              />
-              <button
-                type="button"
-                className="rounded-2xl bg-cyan-400 px-6 py-3 font-medium text-neutral-950 transition hover:scale-[1.01]"
-              >
-                Надіслати запит
-              </button>
-            </div>
-          </form>
-        </div>
-      </section>
-    </div>
-  );
-}
+    <a class="btn" href="#">Відправити</a>
+  </div>
+</body>
+</html>
