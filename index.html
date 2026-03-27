@@ -22,6 +22,7 @@
         radial-gradient(circle at top right, rgba(0, 255, 170, 0.08), transparent 28%),
         linear-gradient(180deg, #07090c 0%, #0d1117 100%);
       color: #ffffff;
+      overflow-x: hidden;
     }
 
     a {
@@ -72,7 +73,7 @@
       text-decoration: none;
       font-size: 14px;
       color: rgba(255, 255, 255, 0.82);
-      transition: 0.2s ease;
+      transition: 0.25s ease;
     }
 
     .nav-links a:hover {
@@ -99,6 +100,7 @@
       color: #9ef6ff;
       font-size: 13px;
       margin-bottom: 18px;
+      box-shadow: 0 0 18px rgba(0, 229, 255, 0.10);
     }
 
     h1 {
@@ -127,7 +129,7 @@
       border-radius: 14px;
       font-weight: 700;
       text-decoration: none;
-      transition: 0.2s ease;
+      transition: 0.25s ease;
     }
 
     .btn-primary {
@@ -139,6 +141,7 @@
     .btn-primary:hover {
       transform: translateY(-2px);
       opacity: 0.96;
+      box-shadow: 0 18px 42px rgba(0, 229, 255, 0.28);
     }
 
     .btn-secondary {
@@ -150,6 +153,7 @@
     .btn-secondary:hover {
       border-color: rgba(0, 229, 255, 0.35);
       color: #9ef6ff;
+      transform: translateY(-2px);
     }
 
     .hero-card,
@@ -166,6 +170,12 @@
 
     .hero-card {
       padding: 26px;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .hero-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 28px 60px rgba(0, 0, 0, 0.35);
     }
 
     .hero-stat {
@@ -174,10 +184,16 @@
       background: rgba(0, 0, 0, 0.18);
       border: 1px solid rgba(255, 255, 255, 0.06);
       margin-bottom: 14px;
+      transition: 0.3s ease;
     }
 
     .hero-stat:last-child {
       margin-bottom: 0;
+    }
+
+    .hero-stat:hover {
+      border-color: rgba(0, 229, 255, 0.18);
+      transform: translateY(-2px);
     }
 
     .hero-stat-title {
@@ -251,6 +267,7 @@
       padding: 24px;
       position: relative;
       overflow: hidden;
+      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
     }
 
     .service-card::before {
@@ -260,6 +277,12 @@
       width: 100%;
       height: 1px;
       background: linear-gradient(90deg, rgba(0,229,255,0.0), rgba(0,229,255,0.4), rgba(0,255,195,0.0));
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.38);
+      border-color: rgba(0, 229, 255, 0.18);
     }
 
     .service-card h3 {
@@ -302,13 +325,14 @@
       font-weight: 700;
       background: linear-gradient(135deg, #00e5ff, #00ffc3);
       color: #041015;
-      transition: 0.2s ease;
-      box-shadow: 0 12px 28px rgba(0, 229, 255, 0.14);
+      transition: 0.25s ease;
+      box-shadow: 0 0 20px rgba(0, 229, 255, 0.18), 0 12px 28px rgba(0, 229, 255, 0.14);
     }
 
     .order-btn:hover {
       transform: translateY(-2px);
       opacity: 0.95;
+      box-shadow: 0 0 28px rgba(0, 229, 255, 0.28), 0 18px 38px rgba(0, 229, 255, 0.20);
     }
 
     .process-grid {
@@ -320,6 +344,12 @@
 
     .step {
       padding: 22px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .step:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 25px 55px rgba(0, 0, 0, 0.34);
     }
 
     .step-number {
@@ -333,6 +363,7 @@
       font-weight: 700;
       background: linear-gradient(135deg, #00e5ff, #00ffc3);
       color: #041015;
+      box-shadow: 0 0 18px rgba(0, 229, 255, 0.18);
     }
 
     .step p {
@@ -386,12 +417,14 @@
       color: #ffffff;
       font-size: 15px;
       outline: none;
+      transition: 0.25s ease;
     }
 
     input:focus,
     textarea:focus {
       border-color: rgba(0, 229, 255, 0.42);
       box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.08);
+      transform: translateY(-1px);
     }
 
     textarea {
@@ -411,6 +444,17 @@
       border-top: 1px solid rgba(255, 255, 255, 0.08);
       color: rgba(255, 255, 255, 0.56);
       font-size: 14px;
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .fade-up.show {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     @media (max-width: 980px) {
@@ -475,7 +519,7 @@
   </header>
 
   <main>
-    <section class="hero">
+    <section class="hero fade-up">
       <div class="container hero-grid">
         <div>
           <div class="badge">Інформаційно-консультаційні послуги</div>
@@ -490,7 +534,7 @@
           </div>
         </div>
 
-        <div class="hero-card">
+        <div class="hero-card fade-up">
           <div class="hero-stat">
             <div class="hero-stat-title">Формат роботи</div>
             <div class="hero-stat-value">Онлайн-консультації та індивідуальний супровід</div>
@@ -507,7 +551,7 @@
       </div>
     </section>
 
-    <section id="about">
+    <section id="about" class="fade-up">
       <div class="container">
         <div class="section-head">
           <div class="section-label">Про мене</div>
@@ -547,7 +591,7 @@
       </div>
     </section>
 
-    <section id="services">
+    <section id="services" class="fade-up">
       <div class="container">
         <div class="section-head">
           <div class="section-label">Послуги</div>
@@ -559,50 +603,50 @@
         </div>
 
         <div class="services-grid">
-          <div class="service-card">
+          <div class="service-card fade-up">
             <h3>Інформаційно-консультаційні послуги</h3>
             <p>Надання індивідуальних консультацій щодо технічних, цифрових та організаційних рішень.</p>
-            <div class="price">Від 700 грн</div>
+            <div class="price">від 700 грн</div>
             <div class="price-note">за консультацію</div>
             <a href="#contacts" class="order-btn">Замовити</a>
           </div>
 
-          <div class="service-card">
+          <div class="service-card fade-up">
             <h3>Аналіз та систематизація інформації</h3>
             <p>Обробка, впорядкування та підготовка матеріалів, описів, рекомендацій та структурованої інформації.</p>
-            <div class="price">від 10000 грн</div>
+            <div class="price">від 1000 грн</div>
             <div class="price-note">залежно від обсягу</div>
             <a href="#contacts" class="order-btn">Замовити</a>
           </div>
 
-          <div class="service-card">
+          <div class="service-card fade-up">
             <h3>Оптимізація процесів</h3>
             <p>Консультації щодо впорядкування робочих задач, покращення внутрішніх процесів та підбору зручних рішень.</p>
-            <div class="price">Від 1500 грн</div>
+            <div class="price">від 1000 грн</div>
             <div class="price-note">індивідуально</div>
             <a href="#contacts" class="order-btn">Замовити</a>
           </div>
 
-          <div class="service-card">
+          <div class="service-card fade-up">
             <h3>Підготовка інструкцій і гайдів</h3>
             <p>Створення зрозумілих покрокових інструкцій, пам’яток, пояснень та допоміжних матеріалів.</p>
-            <div class="price">Від 1000 грн</div>
+            <div class="price">від 1000 грн</div>
             <div class="price-note">за матеріал</div>
             <a href="#contacts" class="order-btn">Замовити</a>
           </div>
 
-          <div class="service-card">
+          <div class="service-card fade-up">
             <h3>Цифрові рішення</h3>
             <p>Рекомендації щодо сервісів, інструментів та цифрових підходів для більш ефективної роботи.</p>
-            <div class="price">Від 2000 грн</div>
+            <div class="price">від 1000 грн</div>
             <div class="price-note">консультація</div>
             <a href="#contacts" class="order-btn">Замовити</a>
           </div>
 
-          <div class="service-card">
+          <div class="service-card fade-up">
             <h3>Інформаційна підтримка клієнтів</h3>
             <p>Допомога в узагальненні, поясненні та оформленні інформації під конкретний запит клієнта.</p>
-            <div class="price">Від 1000 грн</div>
+            <div class="price">від 700 грн</div>
             <div class="price-note">залежно від задачі</div>
             <a href="#contacts" class="order-btn">Замовити</a>
           </div>
@@ -610,7 +654,7 @@
       </div>
     </section>
 
-    <section id="process">
+    <section id="process" class="fade-up">
       <div class="container">
         <div class="section-head">
           <div class="section-label">Співпраця</div>
@@ -618,19 +662,19 @@
         </div>
 
         <div class="process-grid">
-          <div class="step">
+          <div class="step fade-up">
             <div class="step-number">1</div>
             <p>Ви залишаєте заявку через форму або звертаєтесь за контактами на сайті.</p>
           </div>
-          <div class="step">
+          <div class="step fade-up">
             <div class="step-number">2</div>
             <p>Уточнюємо деталі запиту, формат послуги та очікуваний результат.</p>
           </div>
-          <div class="step">
+          <div class="step fade-up">
             <div class="step-number">3</div>
             <p>Погоджуємо обсяг роботи, строки виконання та вартість.</p>
           </div>
-          <div class="step">
+          <div class="step fade-up">
             <div class="step-number">4</div>
             <p>Після погодження виконую роботу та надаю результат у домовлений строк.</p>
           </div>
@@ -638,7 +682,7 @@
       </div>
     </section>
 
-    <section id="contacts">
+    <section id="contacts" class="fade-up">
       <div class="container">
         <div class="section-head">
           <div class="section-label">Контакти</div>
@@ -680,7 +724,7 @@
               <button type="submit" class="btn btn-primary" style="border:none; cursor:pointer;">Надіслати заявку</button>
             </form>
             <p class="form-note">
-              
+              Після першої заявки сервіс може попросити підтвердити прийом форм на email.
             </p>
           </div>
         </div>
@@ -693,6 +737,22 @@
       © ФОП Мацюк Іван Михайлович — інформаційно-консультаційні послуги
     </div>
   </footer>
+
+  <script>
+    const elements = document.querySelectorAll('.fade-up');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, {
+      threshold: 0.12
+    });
+
+    elements.forEach((el) => observer.observe(el));
+  </script>
 
 </body>
 </html>
