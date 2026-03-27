@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ФОП Мацюк Іван Михайлович — консультаційні послуги</title>
-  <meta name="description" content="Інформаційно-консультаційні послуги, аналіз інформації, цифрові рішення, оптимізація процесів та підготовка матеріалів.">
+  <meta name="description" content="Інформаційно-консультаційні послуги, аналіз інформації, цифрові рішення, оптимізація процесів та підготовка матеріалів." />
+
   <style>
     * {
       box-sizing: border-box;
@@ -14,19 +15,40 @@
       scroll-behavior: smooth;
     }
 
+    :root {
+      --bg: #f7f3ee;
+      --bg-soft: #fdfaf6;
+      --card: rgba(255, 255, 255, 0.72);
+      --card-strong: rgba(255, 255, 255, 0.88);
+      --text: #1f1d1a;
+      --muted: #6f685f;
+      --line: rgba(72, 58, 43, 0.10);
+      --gold: #c7a56a;
+      --gold-dark: #a88246;
+      --accent: #cfc0ad;
+      --shadow: 0 20px 50px rgba(80, 62, 39, 0.10);
+      --shadow-strong: 0 30px 80px rgba(80, 62, 39, 0.16);
+      --radius: 26px;
+    }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
+      color: var(--text);
       background:
-        radial-gradient(circle at top left, rgba(0, 229, 255, 0.10), transparent 32%),
-        radial-gradient(circle at top right, rgba(0, 255, 170, 0.08), transparent 28%),
-        linear-gradient(180deg, #07090c 0%, #0d1117 100%);
-      color: #ffffff;
+        radial-gradient(circle at top left, rgba(199, 165, 106, 0.16), transparent 30%),
+        radial-gradient(circle at top right, rgba(207, 192, 173, 0.30), transparent 35%),
+        linear-gradient(180deg, #fcfaf7 0%, #f5efe8 52%, #f8f3ed 100%);
       overflow-x: hidden;
     }
 
     a {
       color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
     }
 
     .container {
@@ -36,13 +58,43 @@
       padding: 0 20px;
     }
 
+    .blur-orb {
+      position: fixed;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      filter: blur(70px);
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.45;
+    }
+
+    .orb-one {
+      background: rgba(199, 165, 106, 0.20);
+      top: 40px;
+      left: -80px;
+      animation: floatOrb 8s ease-in-out infinite;
+    }
+
+    .orb-two {
+      background: rgba(197, 181, 160, 0.28);
+      right: -60px;
+      top: 420px;
+      animation: floatOrb 10s ease-in-out infinite;
+    }
+
+    @keyframes floatOrb {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(20px); }
+    }
+
     header {
       position: sticky;
       top: 0;
       z-index: 50;
-      backdrop-filter: blur(12px);
-      background: rgba(7, 10, 14, 0.72);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(16px);
+      background: rgba(253, 250, 246, 0.72);
+      border-bottom: 1px solid rgba(72, 58, 43, 0.06);
     }
 
     .nav {
@@ -56,11 +108,11 @@
     .logo {
       font-size: 22px;
       font-weight: 700;
-      letter-spacing: 0.4px;
+      letter-spacing: 0.3px;
     }
 
     .logo span {
-      color: #00e5ff;
+      color: var(--gold-dark);
     }
 
     .nav-links {
@@ -72,173 +124,245 @@
     .nav-links a {
       text-decoration: none;
       font-size: 14px;
-      color: rgba(255, 255, 255, 0.82);
+      color: rgba(31, 29, 26, 0.72);
       transition: 0.25s ease;
     }
 
     .nav-links a:hover {
-      color: #9ef6ff;
+      color: var(--gold-dark);
+    }
+
+    main, header, footer {
+      position: relative;
+      z-index: 1;
     }
 
     .hero {
-      padding: 92px 0 70px;
+      padding: 88px 0 70px;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 30px;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 34px;
       align-items: center;
     }
 
     .badge {
       display: inline-block;
-      padding: 8px 14px;
+      padding: 10px 15px;
       border-radius: 999px;
-      background: rgba(0, 229, 255, 0.10);
-      border: 1px solid rgba(0, 229, 255, 0.22);
-      color: #9ef6ff;
+      background: rgba(199, 165, 106, 0.12);
+      border: 1px solid rgba(199, 165, 106, 0.20);
+      color: #8b6a34;
       font-size: 13px;
       margin-bottom: 18px;
-      box-shadow: 0 0 18px rgba(0, 229, 255, 0.10);
+      box-shadow: 0 10px 24px rgba(199, 165, 106, 0.10);
     }
 
     h1 {
       margin: 0 0 18px;
-      font-size: 58px;
-      line-height: 1.05;
+      font-size: 60px;
+      line-height: 1.03;
+      letter-spacing: -1.5px;
     }
 
     .hero p {
-      margin: 0 0 28px;
-      max-width: 760px;
+      margin: 0 0 30px;
+      max-width: 720px;
       font-size: 18px;
-      line-height: 1.75;
-      color: rgba(255, 255, 255, 0.76);
+      line-height: 1.8;
+      color: var(--muted);
     }
 
     .hero-buttons {
       display: flex;
       gap: 14px;
       flex-wrap: wrap;
+      margin-bottom: 26px;
     }
 
     .btn {
       display: inline-block;
       padding: 14px 24px;
-      border-radius: 14px;
+      border-radius: 16px;
       font-weight: 700;
       text-decoration: none;
       transition: 0.25s ease;
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, #00e5ff, #00ffc3);
-      color: #041015;
-      box-shadow: 0 14px 34px rgba(0, 229, 255, 0.18);
+      background: linear-gradient(135deg, #d9bc88, #bf9658);
+      color: white;
+      box-shadow: 0 18px 36px rgba(191, 150, 88, 0.24);
     }
 
     .btn-primary:hover {
       transform: translateY(-2px);
-      opacity: 0.96;
-      box-shadow: 0 18px 42px rgba(0, 229, 255, 0.28);
+      box-shadow: 0 24px 48px rgba(191, 150, 88, 0.30);
     }
 
     .btn-secondary {
-      color: #ffffff;
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      background: rgba(255, 255, 255, 0.03);
+      background: rgba(255,255,255,0.56);
+      border: 1px solid rgba(72, 58, 43, 0.10);
+      color: var(--text);
     }
 
     .btn-secondary:hover {
-      border-color: rgba(0, 229, 255, 0.35);
-      color: #9ef6ff;
       transform: translateY(-2px);
+      border-color: rgba(191, 150, 88, 0.24);
+      color: var(--gold-dark);
     }
 
-    .hero-card,
+    .hero-mini {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .mini-chip {
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.56);
+      border: 1px solid rgba(72, 58, 43, 0.08);
+      color: var(--muted);
+      font-size: 14px;
+      box-shadow: var(--shadow);
+    }
+
+    .premium-card,
     .about-card,
     .section-box,
     .service-card,
     .contact-card,
-    .step {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 24px;
-      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.22);
+    .step,
+    .gallery-card,
+    .image-box {
+      background: var(--card);
+      border: 1px solid rgba(72, 58, 43, 0.08);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
     }
 
-    .hero-card {
-      padding: 26px;
-      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    .hero-visual {
+      position: relative;
+      min-height: 530px;
+      border-radius: 32px;
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.45), rgba(255,255,255,0.75)),
+        linear-gradient(135deg, #efe1d0 0%, #f8f2ea 44%, #e7d8c6 100%);
+      border: 1px solid rgba(72, 58, 43, 0.08);
+      box-shadow: var(--shadow-strong);
     }
 
-    .hero-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 28px 60px rgba(0, 0, 0, 0.35);
+    .hero-pattern {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(138,112,72,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(138,112,72,0.05) 1px, transparent 1px);
+      background-size: 34px 34px;
+      mask-image: linear-gradient(180deg, rgba(0,0,0,1), rgba(0,0,0,0.5));
     }
 
-    .hero-stat {
+    .floating-card {
+      position: absolute;
+      background: rgba(255,255,255,0.82);
+      border: 1px solid rgba(72,58,43,0.08);
+      border-radius: 22px;
+      box-shadow: 0 24px 60px rgba(84, 63, 36, 0.12);
+      backdrop-filter: blur(10px);
+    }
+
+    .main-image-card {
+      width: 74%;
+      right: 34px;
+      top: 34px;
+      overflow: hidden;
+      padding: 0;
+    }
+
+    .main-image-card img {
+      width: 100%;
+      height: 100%;
+      min-height: 300px;
+      object-fit: cover;
+    }
+
+    .small-card-left {
+      left: 24px;
+      bottom: 150px;
+      width: 210px;
       padding: 18px;
-      border-radius: 18px;
-      background: rgba(0, 0, 0, 0.18);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      margin-bottom: 14px;
-      transition: 0.3s ease;
+      animation: floatCard 5s ease-in-out infinite;
     }
 
-    .hero-stat:last-child {
-      margin-bottom: 0;
+    .small-card-bottom {
+      right: 40px;
+      bottom: 26px;
+      width: 250px;
+      padding: 18px;
+      animation: floatCard 6s ease-in-out infinite;
     }
 
-    .hero-stat:hover {
-      border-color: rgba(0, 229, 255, 0.18);
-      transform: translateY(-2px);
+    @keyframes floatCard {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
     }
 
-    .hero-stat-title {
-      font-size: 13px;
-      color: rgba(255, 255, 255, 0.55);
-      margin-bottom: 8px;
+    .floating-label {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 10px;
     }
 
-    .hero-stat-value {
-      font-size: 20px;
-      line-height: 1.5;
+    .floating-value {
+      font-size: 19px;
       font-weight: 700;
+      line-height: 1.5;
+    }
+
+    .floating-text {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--muted);
     }
 
     section {
-      padding: 30px 0 74px;
+      padding: 26px 0 76px;
     }
 
     .section-head {
-      margin-bottom: 24px;
+      margin-bottom: 26px;
     }
 
     .section-label {
       font-size: 12px;
       text-transform: uppercase;
       letter-spacing: 0.18em;
-      color: #92f4ff;
+      color: #9c7b43;
       margin-bottom: 10px;
     }
 
     h2 {
       margin: 0;
-      font-size: 38px;
+      font-size: 40px;
+      letter-spacing: -0.8px;
     }
 
     .lead {
       margin-top: 14px;
       max-width: 860px;
-      color: rgba(255, 255, 255, 0.72);
-      line-height: 1.85;
+      color: var(--muted);
+      line-height: 1.88;
+      font-size: 17px;
     }
 
     .about-grid {
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
+      grid-template-columns: 1fr 1fr;
       gap: 24px;
       align-items: stretch;
     }
@@ -246,21 +370,52 @@
     .about-card,
     .section-box,
     .contact-card {
-      padding: 28px;
+      padding: 30px;
     }
 
     .list {
       margin: 0;
       padding-left: 18px;
-      color: rgba(255, 255, 255, 0.78);
-      line-height: 1.9;
+      color: var(--muted);
+      line-height: 1.95;
+    }
+
+    .about-gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .gallery-card {
+      overflow: hidden;
+      min-height: 220px;
+      position: relative;
+    }
+
+    .gallery-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: auto 14px 14px 14px;
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.78);
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--text);
+      backdrop-filter: blur(10px);
     }
 
     .services-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 20px;
-      margin-top: 24px;
+      margin-top: 26px;
     }
 
     .service-card {
@@ -275,14 +430,28 @@
       position: absolute;
       inset: 0 auto auto 0;
       width: 100%;
-      height: 1px;
-      background: linear-gradient(90deg, rgba(0,229,255,0.0), rgba(0,229,255,0.4), rgba(0,255,195,0.0));
+      height: 3px;
+      background: linear-gradient(90deg, #dec69a, #b98d4a);
     }
 
     .service-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.38);
-      border-color: rgba(0, 229, 255, 0.18);
+      transform: translateY(-9px);
+      box-shadow: 0 36px 80px rgba(80, 62, 39, 0.16);
+      border-color: rgba(185, 141, 74, 0.20);
+    }
+
+    .service-icon {
+      width: 58px;
+      height: 58px;
+      border-radius: 18px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, rgba(217,188,136,0.30), rgba(255,255,255,0.75));
+      border: 1px solid rgba(185,141,74,0.14);
+      font-size: 24px;
+      box-shadow: 0 14px 26px rgba(185,141,74,0.08);
     }
 
     .service-card h3 {
@@ -294,8 +463,8 @@
 
     .service-card p {
       margin: 0;
-      color: rgba(255, 255, 255, 0.72);
-      line-height: 1.75;
+      color: var(--muted);
+      line-height: 1.78;
       min-height: 96px;
     }
 
@@ -303,15 +472,13 @@
       margin-top: 16px;
       font-size: 24px;
       font-weight: 700;
-      background: linear-gradient(135deg, #00e5ff, #00ffc3);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: var(--gold-dark);
     }
 
     .price-note {
       margin-top: 6px;
       font-size: 13px;
-      color: rgba(255, 255, 255, 0.5);
+      color: rgba(80, 62, 39, 0.60);
       line-height: 1.6;
     }
 
@@ -319,20 +486,54 @@
       display: block;
       margin-top: 18px;
       padding: 13px 14px;
-      border-radius: 12px;
+      border-radius: 14px;
       text-align: center;
       text-decoration: none;
       font-weight: 700;
-      background: linear-gradient(135deg, #00e5ff, #00ffc3);
-      color: #041015;
+      background: linear-gradient(135deg, #d9bc88, #bf9658);
+      color: white;
       transition: 0.25s ease;
-      box-shadow: 0 0 20px rgba(0, 229, 255, 0.18), 0 12px 28px rgba(0, 229, 255, 0.14);
+      box-shadow: 0 18px 30px rgba(191, 150, 88, 0.20);
     }
 
     .order-btn:hover {
       transform: translateY(-2px);
-      opacity: 0.95;
-      box-shadow: 0 0 28px rgba(0, 229, 255, 0.28), 0 18px 38px rgba(0, 229, 255, 0.20);
+      box-shadow: 0 22px 36px rgba(191, 150, 88, 0.26);
+    }
+
+    .image-section {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 24px;
+      align-items: stretch;
+      margin-top: 18px;
+    }
+
+    .image-box {
+      padding: 0;
+      overflow: hidden;
+      min-height: 380px;
+    }
+
+    .image-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .image-copy {
+      padding: 30px;
+    }
+
+    .image-copy h3 {
+      font-size: 28px;
+      margin: 0 0 14px;
+    }
+
+    .image-copy p {
+      color: var(--muted);
+      line-height: 1.85;
+      margin: 0 0 18px;
     }
 
     .process-grid {
@@ -343,33 +544,33 @@
     }
 
     .step {
-      padding: 22px;
+      padding: 24px;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .step:hover {
       transform: translateY(-6px);
-      box-shadow: 0 25px 55px rgba(0, 0, 0, 0.34);
+      box-shadow: 0 26px 56px rgba(80, 62, 39, 0.12);
     }
 
     .step-number {
-      width: 44px;
-      height: 44px;
+      width: 48px;
+      height: 48px;
       border-radius: 50%;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       margin-bottom: 14px;
       font-weight: 700;
-      background: linear-gradient(135deg, #00e5ff, #00ffc3);
-      color: #041015;
-      box-shadow: 0 0 18px rgba(0, 229, 255, 0.18);
+      color: white;
+      background: linear-gradient(135deg, #d9bc88, #bf9658);
+      box-shadow: 0 14px 24px rgba(191, 150, 88, 0.20);
     }
 
     .step p {
       margin: 0;
-      color: rgba(255, 255, 255, 0.76);
-      line-height: 1.75;
+      color: var(--muted);
+      line-height: 1.78;
     }
 
     .contact-grid {
@@ -389,13 +590,13 @@
 
     .contact-label {
       font-size: 13px;
-      color: rgba(255, 255, 255, 0.55);
+      color: rgba(80, 62, 39, 0.56);
       margin-bottom: 6px;
     }
 
     .contact-value,
     .contact-value a {
-      color: #ffffff;
+      color: var(--text);
       text-decoration: none;
       font-size: 18px;
       line-height: 1.55;
@@ -411,10 +612,10 @@
     textarea {
       width: 100%;
       padding: 15px 16px;
-      border-radius: 14px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      background: rgba(0, 0, 0, 0.20);
-      color: #ffffff;
+      border-radius: 16px;
+      border: 1px solid rgba(72, 58, 43, 0.10);
+      background: rgba(255, 255, 255, 0.78);
+      color: var(--text);
       font-size: 15px;
       outline: none;
       transition: 0.25s ease;
@@ -422,8 +623,8 @@
 
     input:focus,
     textarea:focus {
-      border-color: rgba(0, 229, 255, 0.42);
-      box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.08);
+      border-color: rgba(191, 150, 88, 0.35);
+      box-shadow: 0 0 0 4px rgba(191, 150, 88, 0.08);
       transform: translateY(-1px);
     }
 
@@ -433,7 +634,7 @@
     }
 
     .form-note {
-      color: rgba(255, 255, 255, 0.52);
+      color: rgba(80, 62, 39, 0.58);
       font-size: 13px;
       line-height: 1.6;
       margin-top: -2px;
@@ -441,15 +642,15 @@
 
     footer {
       padding: 28px 0 34px;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      color: rgba(255, 255, 255, 0.56);
+      border-top: 1px solid rgba(72, 58, 43, 0.08);
+      color: rgba(80, 62, 39, 0.64);
       font-size: 14px;
     }
 
     .fade-up {
       opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
+      transform: translateY(42px);
+      transition: opacity 0.9s ease, transform 0.9s ease;
     }
 
     .fade-up.show {
@@ -457,12 +658,25 @@
       transform: translateY(0);
     }
 
+    .zoom-in {
+      opacity: 0;
+      transform: scale(0.94);
+      transition: opacity 0.9s ease, transform 0.9s ease;
+    }
+
+    .zoom-in.show {
+      opacity: 1;
+      transform: scale(1);
+    }
+
     @media (max-width: 980px) {
       .hero-grid,
       .about-grid,
       .services-grid,
       .process-grid,
-      .contact-grid {
+      .contact-grid,
+      .image-section,
+      .about-gallery {
         grid-template-columns: 1fr;
       }
 
@@ -476,21 +690,42 @@
       }
 
       h2 {
-        font-size: 30px;
+        font-size: 32px;
       }
 
       .service-card p {
         min-height: auto;
       }
+
+      .hero-visual {
+        min-height: 430px;
+      }
+
+      .main-image-card {
+        width: calc(100% - 40px);
+        right: 20px;
+        top: 20px;
+      }
+
+      .small-card-left {
+        left: 16px;
+        bottom: 120px;
+      }
+
+      .small-card-bottom {
+        right: 16px;
+        bottom: 16px;
+      }
     }
 
     @media (max-width: 640px) {
       .hero {
-        padding-top: 66px;
+        padding-top: 64px;
       }
 
       h1 {
         font-size: 34px;
+        letter-spacing: -1px;
       }
 
       .hero p {
@@ -501,10 +736,27 @@
         width: 100%;
         text-align: center;
       }
+
+      .hero-visual {
+        min-height: 360px;
+      }
+
+      .small-card-left,
+      .small-card-bottom {
+        width: 180px;
+        padding: 14px;
+      }
+
+      .floating-value {
+        font-size: 16px;
+      }
     }
   </style>
 </head>
 <body>
+
+  <div class="blur-orb orb-one"></div>
+  <div class="blur-orb orb-two"></div>
 
   <header>
     <div class="container nav">
@@ -512,6 +764,7 @@
       <nav class="nav-links">
         <a href="#about">Про мене</a>
         <a href="#services">Послуги</a>
+        <a href="#visual">Переваги</a>
         <a href="#process">Співпраця</a>
         <a href="#contacts">Контакти</a>
       </nav>
@@ -523,29 +776,41 @@
       <div class="container hero-grid">
         <div>
           <div class="badge">Інформаційно-консультаційні послуги</div>
-          <h1>Професійні консультації, аналітика та цифрові рішення</h1>
+          <h1>Сучасний підхід до консультацій, аналітики та цифрових рішень</h1>
           <p>
             Допомагаю клієнтам із систематизацією інформації, підготовкою матеріалів,
             оптимізацією процесів та підбором практичних цифрових рішень для щоденної роботи.
+            Формат співпраці — індивідуальний, зрозумілий та орієнтований на реальний результат.
           </p>
+
           <div class="hero-buttons">
             <a href="#contacts" class="btn btn-primary">Залишити заявку</a>
             <a href="#services" class="btn btn-secondary">Переглянути послуги</a>
           </div>
+
+          <div class="hero-mini">
+            <div class="mini-chip">Преміум-подача</div>
+            <div class="mini-chip">Сучасний візуальний стиль</div>
+            <div class="mini-chip">Орієнтовні ціни від 700 грн</div>
+          </div>
         </div>
 
-        <div class="hero-card fade-up">
-          <div class="hero-stat">
-            <div class="hero-stat-title">Формат роботи</div>
-            <div class="hero-stat-value">Онлайн-консультації та індивідуальний супровід</div>
+        <div class="hero-visual zoom-in">
+          <div class="hero-pattern"></div>
+
+          <div class="floating-card main-image-card">
+            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80" alt="Сучасний робочий простір" />
           </div>
-          <div class="hero-stat">
-            <div class="hero-stat-title">Основний фокус</div>
-            <div class="hero-stat-value">Аналіз інформації, цифрові інструменти, оптимізація робочих процесів</div>
+
+          <div class="floating-card small-card-left">
+            <div class="floating-label">Контакт</div>
+            <div class="floating-value">+380 93 627 92 63</div>
+            <div class="floating-text" style="margin-top:8px;">Швидкий зв’язок для обговорення задачі</div>
           </div>
-          <div class="hero-stat">
-            <div class="hero-stat-title">Контакт</div>
-            <div class="hero-stat-value">+380 93 627 92 63</div>
+
+          <div class="floating-card small-card-bottom">
+            <div class="floating-label">Основний фокус</div>
+            <div class="floating-value">Аналітика, структура, цифрові інструменти</div>
           </div>
         </div>
       </div>
@@ -588,6 +853,18 @@
             </ul>
           </div>
         </div>
+
+        <div class="about-gallery">
+          <div class="gallery-card zoom-in">
+            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80" alt="Робота з інформацією" />
+            <div class="gallery-overlay">Структурований підхід до аналізу, документів та комунікації з клієнтом.</div>
+          </div>
+
+          <div class="gallery-card zoom-in">
+            <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1200&q=80" alt="Сучасний офісний простір" />
+            <div class="gallery-overlay">Сучасна подача, акуратний сервіс і комфортний формат співпраці.</div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -604,6 +881,7 @@
 
         <div class="services-grid">
           <div class="service-card fade-up">
+            <div class="service-icon">✦</div>
             <h3>Інформаційно-консультаційні послуги</h3>
             <p>Надання індивідуальних консультацій щодо технічних, цифрових та організаційних рішень.</p>
             <div class="price">від 700 грн</div>
@@ -612,6 +890,7 @@
           </div>
 
           <div class="service-card fade-up">
+            <div class="service-icon">⌘</div>
             <h3>Аналіз та систематизація інформації</h3>
             <p>Обробка, впорядкування та підготовка матеріалів, описів, рекомендацій та структурованої інформації.</p>
             <div class="price">від 1000 грн</div>
@@ -620,6 +899,7 @@
           </div>
 
           <div class="service-card fade-up">
+            <div class="service-icon">◌</div>
             <h3>Оптимізація процесів</h3>
             <p>Консультації щодо впорядкування робочих задач, покращення внутрішніх процесів та підбору зручних рішень.</p>
             <div class="price">від 1000 грн</div>
@@ -628,6 +908,7 @@
           </div>
 
           <div class="service-card fade-up">
+            <div class="service-icon">✎</div>
             <h3>Підготовка інструкцій і гайдів</h3>
             <p>Створення зрозумілих покрокових інструкцій, пам’яток, пояснень та допоміжних матеріалів.</p>
             <div class="price">від 1000 грн</div>
@@ -636,6 +917,7 @@
           </div>
 
           <div class="service-card fade-up">
+            <div class="service-icon">◈</div>
             <h3>Цифрові рішення</h3>
             <p>Рекомендації щодо сервісів, інструментів та цифрових підходів для більш ефективної роботи.</p>
             <div class="price">від 1000 грн</div>
@@ -644,11 +926,37 @@
           </div>
 
           <div class="service-card fade-up">
+            <div class="service-icon">☰</div>
             <h3>Інформаційна підтримка клієнтів</h3>
             <p>Допомога в узагальненні, поясненні та оформленні інформації під конкретний запит клієнта.</p>
             <div class="price">від 700 грн</div>
             <div class="price-note">залежно від задачі</div>
             <a href="#contacts" class="order-btn">Замовити</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="visual" class="fade-up">
+      <div class="container">
+        <div class="image-section">
+          <div class="image-box zoom-in">
+            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80" alt="Консультації та планування" />
+          </div>
+
+          <div class="image-copy premium-card">
+            <div class="section-label">Переваги</div>
+            <h3>Сервіс, який виглядає сучасно і викликає довіру</h3>
+            <p>
+              Сайт побудований так, щоб одразу створювати відчуття професійності:
+              світлий преміум-фон, акуратні картки, плавні анімації, візуальні блоки
+              та чітка структура, яка зручно читається і на телефоні, і на комп’ютері.
+            </p>
+            <p>
+              Такий стиль краще сприймається клієнтами, виглядає дорожче та сучасніше,
+              ніж стандартний темний лендинг, і краще підходить для консультаційних послуг.
+            </p>
+            <a href="#contacts" class="btn btn-primary">Обговорити співпрацю</a>
           </div>
         </div>
       </div>
@@ -712,14 +1020,14 @@
 
           <div class="contact-card">
             <form action="https://formsubmit.co/dedpul.vova@gmail.com" method="POST">
-              <input type="text" name="name" placeholder="Ваше ім’я" required>
-              <input type="email" name="email" placeholder="Ваш Email" required>
-              <input type="text" name="phone" placeholder="Ваш телефон">
+              <input type="text" name="name" placeholder="Ваше ім’я" required />
+              <input type="email" name="email" placeholder="Ваш Email" required />
+              <input type="text" name="phone" placeholder="Ваш телефон" />
               <textarea name="message" placeholder="Опишіть ваш запит" required></textarea>
 
-              <input type="hidden" name="_captcha" value="false">
-              <input type="hidden" name="_subject" value="Нова заявка з сайту Мацюк">
-              <input type="hidden" name="_template" value="table">
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_subject" value="Нова заявка з сайту Мацюк" />
+              <input type="hidden" name="_template" value="table" />
 
               <button type="submit" class="btn btn-primary" style="border:none; cursor:pointer;">Надіслати заявку</button>
             </form>
@@ -739,7 +1047,7 @@
   </footer>
 
   <script>
-    const elements = document.querySelectorAll('.fade-up');
+    const animatedElements = document.querySelectorAll('.fade-up, .zoom-in');
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -747,12 +1055,9 @@
           entry.target.classList.add('show');
         }
       });
-    }, {
-      threshold: 0.12
-    });
+    }, { threshold: 0.12 });
 
-    elements.forEach((el) => observer.observe(el));
+    animatedElements.forEach((el) => observer.observe(el));
   </script>
-
 </body>
 </html>
