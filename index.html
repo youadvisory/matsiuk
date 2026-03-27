@@ -4,90 +4,620 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Мацюк — консультаційні послуги</title>
+  <meta name="description" content="Інформаційно-консультаційні послуги, аналіз інформації, підготовка матеріалів, цифрові рішення та оптимізація процесів.">
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #0b0b0b;
+      background:
+        radial-gradient(circle at top left, rgba(0, 229, 255, 0.12), transparent 35%),
+        radial-gradient(circle at top right, rgba(0, 255, 170, 0.08), transparent 30%),
+        linear-gradient(180deg, #090909 0%, #0f1115 100%);
       color: #ffffff;
     }
+
     .container {
-      max-width: 1100px;
-      margin: auto;
-      padding: 40px 20px;
+      width: 100%;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 20px;
     }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(12px);
+      background: rgba(10, 12, 16, 0.75);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .logo span {
+      color: #00e5ff;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: rgba(255, 255, 255, 0.82);
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .nav-links a:hover {
+      color: #00e5ff;
+    }
+
+    .hero {
+      padding: 90px 0 70px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(0, 229, 255, 0.12);
+      border: 1px solid rgba(0, 229, 255, 0.22);
+      color: #9ef6ff;
+      font-size: 13px;
+      margin-bottom: 18px;
+    }
+
     h1 {
-      font-size: 42px;
-      margin-bottom: 10px;
+      font-size: 56px;
+      line-height: 1.05;
+      margin: 0 0 18px;
     }
-    h2 {
-      margin-top: 40px;
+
+    .hero p {
+      font-size: 18px;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.78);
+      max-width: 760px;
+      margin: 0 0 28px;
     }
-    .card {
-      background: #1a1a1a;
-      padding: 20px;
-      border-radius: 12px;
-      margin-top: 20px;
+
+    .hero-buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
     }
+
     .btn {
       display: inline-block;
-      padding: 12px 20px;
-      background: #00e5ff;
-      color: #000;
-      border-radius: 8px;
+      padding: 14px 24px;
+      border-radius: 12px;
       text-decoration: none;
-      margin-top: 20px;
-      font-weight: bold;
+      font-weight: 700;
+      transition: 0.2s ease;
     }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #00e5ff, #00ffc3);
+      color: #041015;
+      box-shadow: 0 10px 30px rgba(0, 229, 255, 0.18);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      opacity: 0.95;
+    }
+
+    .btn-secondary {
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .btn-secondary:hover {
+      border-color: rgba(0, 229, 255, 0.35);
+      color: #9ef6ff;
+    }
+
+    .hero-card,
+    .section-box,
+    .service-card,
+    .contact-card,
+    .about-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 22px;
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.22);
+    }
+
+    .hero-card {
+      padding: 26px;
+    }
+
+    .hero-stat {
+      padding: 18px;
+      border-radius: 16px;
+      background: rgba(0, 0, 0, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      margin-bottom: 14px;
+    }
+
+    .hero-stat:last-child {
+      margin-bottom: 0;
+    }
+
+    .hero-stat-title {
+      color: rgba(255, 255, 255, 0.58);
+      font-size: 13px;
+      margin-bottom: 7px;
+    }
+
+    .hero-stat-value {
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.5;
+    }
+
+    section {
+      padding: 28px 0 72px;
+    }
+
+    .section-head {
+      margin-bottom: 24px;
+    }
+
+    .section-label {
+      color: #92f4ff;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 36px;
+    }
+
+    .lead {
+      color: rgba(255, 255, 255, 0.72);
+      line-height: 1.8;
+      margin-top: 14px;
+      max-width: 850px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .about-card,
+    .section-box,
+    .contact-card {
+      padding: 28px;
+    }
+
+    .list {
+      margin: 0;
+      padding-left: 18px;
+      color: rgba(255, 255, 255, 0.78);
+      line-height: 1.9;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 24px;
+    }
+
+    .service-card {
+      padding: 24px;
+    }
+
+    .service-card h3 {
+      margin-top: 0;
+      margin-bottom: 12px;
+      font-size: 20px;
+    }
+
+    .service-card p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.72);
+      line-height: 1.75;
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .step {
+      padding: 22px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .step-number {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #00e5ff, #00ffc3);
+      color: #041015;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .step p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.76);
+      line-height: 1.7;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 24px;
+      margin-top: 24px;
+    }
+
+    .contact-item {
+      margin-bottom: 16px;
+    }
+
+    .contact-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .contact-label {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.55);
+      margin-bottom: 6px;
+    }
+
+    .contact-value,
+    .contact-value a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 18px;
+      line-height: 1.5;
+      word-break: break-word;
+    }
+
+    form {
+      display: grid;
+      gap: 14px;
+    }
+
     input, textarea {
       width: 100%;
-      padding: 12px;
-      margin-top: 10px;
-      border-radius: 8px;
-      border: none;
-      background: #222;
-      color: #fff;
-      box-sizing: border-box;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(0, 0, 0, 0.2);
+      color: #ffffff;
+      padding: 15px 16px;
+      border-radius: 14px;
+      font-size: 15px;
+      outline: none;
     }
+
+    input:focus, textarea:focus {
+      border-color: rgba(0, 229, 255, 0.45);
+      box-shadow: 0 0 0 3px rgba(0, 229, 255, 0.08);
+    }
+
     textarea {
-      min-height: 140px;
+      min-height: 160px;
       resize: vertical;
+    }
+
+    .form-note {
+      color: rgba(255, 255, 255, 0.55);
+      font-size: 13px;
+      line-height: 1.6;
+      margin-top: -4px;
+    }
+
+    footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 26px 0 34px;
+      color: rgba(255, 255, 255, 0.56);
+      font-size: 14px;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .about-grid,
+      .contact-grid,
+      .services-grid,
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 42px;
+      }
+
+      h2 {
+        font-size: 30px;
+      }
+
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero {
+        padding-top: 64px;
+      }
+
+      h1 {
+        font-size: 34px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Мацюк</h1>
-    <p>Інформаційно-консультаційні послуги</p>
 
-    <a class="btn" href="#contact">Залишити заявку</a>
+  <header>
+    <div class="container nav">
+      <div class="logo">Мацюк<span>.</span></div>
+      <nav class="nav-links">
+        <a href="#about">Про мене</a>
+        <a href="#services">Послуги</a>
+        <a href="#process">Співпраця</a>
+        <a href="#contacts">Контакти</a>
+      </nav>
+    </div>
+  </header>
 
-    <h2>Про діяльність</h2>
-    <p>
-      Надання інформаційно-консультаційних послуг: аналіз інформації,
-      підготовка матеріалів, оптимізація процесів та консультації щодо цифрових рішень.
-    </p>
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="badge">Інформаційно-консультаційні послуги</div>
+          <h1>Професійні консультації, аналітика та цифрові рішення</h1>
+          <p>
+            Допомагаю клієнтам із систематизацією інформації, підготовкою матеріалів,
+            оптимізацією процесів та підбором практичних цифрових рішень для щоденної роботи.
+          </p>
+          <div class="hero-buttons">
+            <a href="#contacts" class="btn btn-primary">Залишити заявку</a>
+            <a href="#services" class="btn btn-secondary">Переглянути послуги</a>
+          </div>
+        </div>
 
-    <h2>Послуги</h2>
-    <div class="card">Консультації щодо цифрових рішень</div>
-    <div class="card">Аналіз та систематизація інформації</div>
-    <div class="card">Оптимізація процесів</div>
-    <div class="card">Підготовка інструкцій і гайдів</div>
+        <div class="hero-card">
+          <div class="hero-stat">
+            <div class="hero-stat-title">Формат роботи</div>
+            <div class="hero-stat-value">Онлайн-консультації та індивідуальний супровід</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-title">Основний фокус</div>
+            <div class="hero-stat-value">Аналіз інформації, цифрові інструменти, оптимізація робочих процесів</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-title">Контакт для заявок</div>
+            <div class="hero-stat-value">dedpul.vova@gmail.com</div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <h2>Як проходить робота</h2>
-    <p>
-      1. Ви залишаєте заявку<br>
-      2. Обговорюємо задачу<br>
-      3. Узгоджуємо ціну<br>
-      4. Виконання
-    </p>
+    <section id="about">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-label">Про мене</div>
+          <h2>Індивідуальний підхід до кожного запиту</h2>
+          <p class="lead">
+            Я надаю інформаційно-консультаційні послуги для клієнтів, яким потрібні
+            зрозумілі рекомендації, якісна підготовка матеріалів, систематизація даних
+            та практичний підхід до цифрових рішень.
+          </p>
+        </div>
 
-    <h2 id="contact">Контакти</h2>
-    <input placeholder="Ваше ім’я">
-    <input placeholder="Email">
-    <textarea placeholder="Ваш запит"></textarea>
+        <div class="about-grid">
+          <div class="about-card">
+            <p class="lead" style="margin-top:0;">
+              У роботі орієнтуюся на чіткість, конфіденційність, логічну структуру
+              та реальну практичну користь для клієнта. Формат співпраці підбирається
+              індивідуально залежно від запиту, обсягу роботи та необхідного результату.
+            </p>
+            <p class="lead">
+              Послуги можуть включати аналіз і впорядкування інформації, підготовку
+              описів, інструкцій, консультаційних матеріалів, а також рекомендації щодо
+              зручніших способів організації роботи та використання цифрових інструментів.
+            </p>
+          </div>
 
-    <a class="btn" href="#">Відправити</a>
-  </div>
+          <div class="section-box">
+            <h3 style="margin-top:0;">У роботі для мене важливо</h3>
+            <ul class="list">
+              <li>уважно зрозуміти задачу клієнта</li>
+              <li>пояснювати складне простими словами</li>
+              <li>давати практичні й зрозумілі рекомендації</li>
+              <li>дотримуватись конфіденційності</li>
+              <li>працювати в погоджені строки</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-label">Послуги</div>
+          <h2>Основні напрями роботи</h2>
+          <p class="lead">
+            Кожен запит розглядається індивідуально. Вартість формується залежно від
+            складності задачі, обсягу роботи та строків виконання.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <div class="service-card">
+            <h3>Інформаційно-консультаційні послуги</h3>
+            <p>Надання індивідуальних консультацій щодо технічних, цифрових та організаційних рішень.</p>
+          </div>
+
+          <div class="service-card">
+            <h3>Аналіз та систематизація інформації</h3>
+            <p>Обробка, впорядкування та підготовка матеріалів, описів, рекомендацій та структурованої інформації.</p>
+          </div>
+
+          <div class="service-card">
+            <h3>Оптимізація процесів</h3>
+            <p>Консультації щодо впорядкування робочих задач, покращення внутрішніх процесів та підбору зручних рішень.</p>
+          </div>
+
+          <div class="service-card">
+            <h3>Підготовка інструкцій і гайдів</h3>
+            <p>Створення зрозумілих покрокових інструкцій, пам’яток, пояснень та допоміжних матеріалів.</p>
+          </div>
+
+          <div class="service-card">
+            <h3>Цифрові рішення</h3>
+            <p>Рекомендації щодо сервісів, інструментів та цифрових підходів для більш ефективної роботи.</p>
+          </div>
+
+          <div class="service-card">
+            <h3>Інформаційна підтримка клієнтів</h3>
+            <p>Допомога в узагальненні, поясненні та оформленні інформації під конкретний запит клієнта.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="process">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-label">Співпраця</div>
+          <h2>Як проходить робота</h2>
+        </div>
+
+        <div class="process-grid">
+          <div class="step">
+            <div class="step-number">1</div>
+            <p>Ви залишаєте заявку через форму або звертаєтесь за контактами на сайті.</p>
+          </div>
+          <div class="step">
+            <div class="step-number">2</div>
+            <p>Уточнюємо деталі запиту, формат послуги та очікуваний результат.</p>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <p>Погоджуємо обсяг роботи, строки виконання та вартість.</p>
+          </div>
+          <div class="step">
+            <div class="step-number">4</div>
+            <p>Після погодження виконую роботу та надаю результат у домовлений строк.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacts">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-label">Контакти</div>
+          <h2>Залишити заявку</h2>
+          <p class="lead">
+            Опишіть коротко вашу задачу, і заявка надійде на email для подальшого зв’язку.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-card">
+            <div class="contact-item">
+              <div class="contact-label">Email</div>
+              <div class="contact-value"><a href="mailto:dedpul.vova@gmail.com">dedpul.vova@gmail.com</a></div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-label">Телефон</div>
+              <div class="contact-value"><a href="tel:+380936279263">0936279263</a></div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-label">ІПН</div>
+              <div class="contact-value">3508309518</div>
+            </div>
+          </div>
+
+          <div class="contact-card">
+            <form action="https://formsubmit.co/dedpul.vova@gmail.com" method="POST">
+              <input type="text" name="name" placeholder="Ваше ім’я" required>
+              <input type="email" name="email" placeholder="Ваш Email" required>
+              <input type="text" name="phone" placeholder="Ваш телефон">
+              <textarea name="message" placeholder="Опишіть ваш запит" required></textarea>
+
+              <input type="hidden" name="_captcha" value="false">
+              <input type="hidden" name="_subject" value="Нова заявка з сайту Мацюк">
+              <input type="hidden" name="_template" value="table">
+
+              <button type="submit" class="btn btn-primary" style="border:none; cursor:pointer;">Надіслати заявку</button>
+            </form>
+            <p class="form-note">
+              Після першої заявки сервіс може надіслати лист для підтвердження отримання форм на email.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © Мацюк — інформаційно-консультаційні послуги
+    </div>
+  </footer>
+
 </body>
 </html>
